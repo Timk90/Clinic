@@ -14,24 +14,24 @@
         <result property="active" column="ENABLED"/>
     </resultMap>
 
-    <select id="main.java.ru.timur.clinic.mapper.ClientMapper.getAllClients" resultMap="resultMap">
+    <select id="getAllClients" resultMap="resultMap">
         SELECT * FROM clients
     </select>
 
-    <select id="main.java.ru.timur.clinic.mapper.ClientMapper.getClientById" resultMap="resultMap">
+    <select id="getClientById" resultMap="resultMap">
         SELECT * FROM clients where ID = #{id}
     </select>
 
-    <select id="main.java.ru.timur.clinic.mapper.ClientMapper.getClientByName" resultMap="resultMap">
+    <select id="getClientByName" resultMap="resultMap">
         SELECT * FROM clients where FIRSTNAME = #{firstname}
     </select>
 
-    <insert id="main.java.ru.timur.clinic.mapper.ClientMapper.insertClient" parameterType="main.java.ru.timur.clinic.bean.Client">
+    <insert id="insertClient" parameterType="main.java.ru.timur.clinic.bean.Client">
         INSERT INTO clients (FIRSTNAME, SURENAME, PATRONIM, PHONE, ENABLED)
         VALUES (#{firstname}, #{lastname}, #{patronymic}, #{polis}, #{active})
     </insert>
 
-    <insert id="main.java.ru.timur.clinic.mapper.ClientMapper.updateClient" parameterType="main.java.ru.timur.clinic.bean.Client">
+    <insert id="updateClient" parameterType="main.java.ru.timur.clinic.bean.Client">
         UPDATE clients SET
         FIRSTNAME = #{firstname},
         LASTNAME = #{lastname},

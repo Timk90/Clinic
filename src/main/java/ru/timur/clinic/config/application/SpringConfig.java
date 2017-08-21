@@ -58,7 +58,7 @@
 ////        databasePopulator.setContinueOnError(true);
 ////        databasePopulator.addScript(new ClassPathResource("main/resources/sql/clients.sql"));
 ////        System.out.println("DB created");
-////        databasePopulator.addScript(new ClassPathResource("main/resources/sql/initPopulations.sql"));
+////        databasePopulator.addScript(new ClassPathResource("main/resources/sql/populate.sql"));
 ////        System.out.println("DB populated");
 ////        return databasePopulator;
 ////    }
