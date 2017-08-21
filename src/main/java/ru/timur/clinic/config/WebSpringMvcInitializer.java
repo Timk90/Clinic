@@ -1,6 +1,6 @@
 //package main.java.ru.timur.clinic.config;
 //
-//import main.java.ru.timur.clinic.config.application.SpringConfig;
+//import main.java.ru.timur.clinic.config.properties.SpringConfig;
 //import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 //
 ///**

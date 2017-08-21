@@ -2,11 +2,8 @@ package main.java.ru.timur.clinic.testDB;
 
 
 import main.java.ru.timur.clinic.bean.Client;
-import main.java.ru.timur.clinic.service.ClinicService;
 import main.java.ru.timur.clinic.service.ClinicServiceImp;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.sql.*;
@@ -30,24 +27,26 @@ public class TestDB {
             stm.execute("DROP TABLE clients IF EXISTS ");
 
 
-            stm.execute("CREATE  TABLE clients ( id INTEGER IDENTITY, firstname VARCHAR(45) NOT NULL, " +
-                    " surename VARCHAR(45) NOT NULL, " +
-                    " patronim VARCHAR(45) , " +
-                    " phone VARCHAR(45), " +
-                    " enabled TINYINT NOT NULL, " +
+            stm.execute("CREATE  TABLE clients ( " +
+                    " id INTEGER IDENTITY, " +
+                    " firstname VARCHAR(45) NOT NULL, " +
+                    " lastname VARCHAR(45) NOT NULL, " +
+                    " patronymic VARCHAR(45) , " +
+                    " polis VARCHAR(45), " +
+                    " active TINYINT NOT NULL, " +
                     " PRIMARY KEY (firstname));");
 
             System.out.println("table created");
             stm.close();
 
             stm = connection.createStatement();
-            stm.execute("INSERT INTO clients (FIRSTNAME, SURENAME, PHONE, ENABLED)\n" +
+            stm.execute("INSERT INTO clients (FIRSTNAME, LASTNAME, POLIS, ACTIVE)\n" +
                     "VALUES ('Timur', 'Burganov', '8493829849', 1);\n" +
-                    "INSERT INTO clients (FIRSTNAME, SURENAME, PHONE, ENABLED)\n" +
+                    "INSERT INTO clients (FIRSTNAME, LASTNAME, POLIS, ACTIVE)\n" +
                     "VALUES ('Bambr', 'Bambridze', '8493829849', 1);\n" +
-                    "INSERT INTO clients (FIRSTNAME, SURENAME, PHONE, ENABLED)\n" +
+                    "INSERT INTO clients (FIRSTNAME, LASTNAME, POLIS, ACTIVE)\n" +
                     "VALUES ('Max', 'IneMax', '8493829849', 1);"+
-                    "INSERT INTO clients (FIRSTNAME, SURENAME, PATRONIM, PHONE, ENABLED)\n" +
+                    "INSERT INTO clients (FIRSTNAME, LASTNAME, POLIS, ACTIVE)\n" +
                     "VALUES ('Сыктывкар', 'Урюков',  'Бабуанович', '8493829849', 2);");
             stm.close();
 
@@ -88,10 +87,10 @@ public class TestDB {
             System.out.println(
                     "id: "+client.getId()+
                     " firstname: "+client.getFirstname()+
-                    " surename: " +client.getSurename()+
-                    " patronim: "+client.getPatronim()+
-                    " phone: "+client.getPhoneNumber()+
-                    " enabled: "+client.getEnabled()
+                    " surename: " +client.getLastname()+
+                    " patronim: "+client.getPatronymic()+
+                    " phone: "+client.getPolis()+
+                    " enabled: "+client.getActive()
 
             );
         }

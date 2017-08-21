@@ -22,7 +22,7 @@ public class LoginClinicController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     ModelAndView login(){
         ModelAndView model = new ModelAndView();
-        model.addObject("User", new Client());
+        //model.addObject("User", new Client());
         model.setViewName("login");
         return model;
     }

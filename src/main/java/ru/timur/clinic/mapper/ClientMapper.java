@@ -12,9 +12,11 @@ import java.util.List;
 public interface ClientMapper {
 
     void insertClient(Client client);
+    void deleteClientById(long id);
+    void updateClient(Client client);
+    void updateClientById(long id);
     List<Client> getClienByName(String name);
     List<Client> getClientById(long id);
-    void deleteClientById(long id);
     List<Client> getAllClients();
 
 }

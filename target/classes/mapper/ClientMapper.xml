@@ -8,10 +8,10 @@
     <resultMap type="main.java.ru.timur.clinic.bean.Client" id="resultMap">
         <id property="id" column="ID" />
         <result property="firstname" column="FIRSTNAME"/>
-        <result property="surename" column="SURENAME"/>
-        <result property="patronim" column="PATRONIM"/>
-        <result property="phoneNumber" column="PHONE"/>
-        <result property="enabled" column="ENABLED"/>
+        <result property="lastname" column="SURENAME"/>
+        <result property="patronymic" column="PATRONIM"/>
+        <result property="polis" column="PHONE"/>
+        <result property="active" column="ENABLED"/>
     </resultMap>
 
     <select id="main.java.ru.timur.clinic.mapper.ClientMapper.getAllClients" resultMap="resultMap">
@@ -20,6 +20,6 @@
 
     <insert id="main.java.ru.timur.clinic.mapper.ClientMapper.insertClient" parameterType="main.java.ru.timur.clinic.bean.Client">
         INSERT INTO clients (FIRSTNAME, SURENAME, PATRONIM, PHONE, ENABLED)
-        VALUES (#{firstname}, #{surename}, #{patronim}, #{phoneNumber}, #{enabled})
+        VALUES (#{firstname}, #{lastname}, #{patronymic}, #{polis}, #{active})
     </insert>
 </mapper>

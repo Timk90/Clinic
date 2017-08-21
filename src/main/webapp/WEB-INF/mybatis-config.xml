@@ -16,5 +16,6 @@
     </environments>
     <mappers>
         <mapper class="main/java/ru/timur/clinic/mapper/ClientMapper" />
+        <mapper class="main/java/ru/timur/clinic/mapper/DoctorMapper" />
     </mappers>
 </configuration>

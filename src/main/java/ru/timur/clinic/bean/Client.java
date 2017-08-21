@@ -9,14 +9,23 @@ public class Client {
 
     long id;
     String firstname;
-    String surename;
-    String patronim;
+    String lastname;
+    String patronymic;
+    Short gender;
     Date birthDate;
-    String phoneNumber;
-    short enabled;
+    String polis;
+    short active;
 
     public long getId() {
         return id;
+    }
+
+    public Short getGender() {
+        return gender;
+    }
+
+    public void setGender(Short gender) {
+        this.gender = gender;
     }
 
     public void setId(long id) {
@@ -31,20 +40,20 @@ public class Client {
         this.firstname = firstname;
     }
 
-    public String getSurename() {
-        return surename;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setSurename(String surename) {
-        this.surename = surename;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
-    public String getPatronim() {
-        return patronim;
+    public String getPatronymic() {
+        return patronymic;
     }
 
-    public void setPatronim(String patronim) {
-        this.patronim = patronim;
+    public void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
     }
 
     public Date getBirthDate() {
@@ -55,19 +64,19 @@ public class Client {
         this.birthDate = birthDate;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPolis() {
+        return polis;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPolis(String polis) {
+        this.polis = polis;
     }
 
-    public short getEnabled() {
-        return enabled;
+    public short getActive() {
+        return active;
     }
 
-    public void setEnabled(short enabled) {
-        this.enabled = enabled;
+    public void setActive(short active) {
+        this.active = active;
     }
 }
