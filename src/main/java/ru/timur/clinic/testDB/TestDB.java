@@ -8,6 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.sql.*;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -79,10 +80,12 @@ public class TestDB {
         //new TestDB().createAndPopulateTable();
 
         //ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("main/webapp/WEB-INF/spring-config-servlet.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config-servlet.xml");
+
         ClinicServiceImp service  = (ClinicServiceImp)ctx.getBean("service");
         System.out.println("------Clients List------");
         List<Client> clients = service.getAllClients();
+        List<Map<String, String>> clients2 = service.getClientWithDoctorsById(1);
         for(Client client: clients){
             System.out.println(
                     "id: "+client.getId()+
@@ -92,6 +95,17 @@ public class TestDB {
                     " phone: "+client.getPolis()+
                     " enabled: "+client.getActive()
 
+            );
+        }
+
+        for(Map map: clients2){
+            System.out.println(
+                    "id: "+map.get("id")+
+                    " firstname: "+map.get("firstname")+
+                    " surename: " +map.get("lastname")+
+                    " patronim: "+map.get("patronymic")+
+                    " doctor: "+map.get("doctroFirstname")+" "+map.get("doctroLastname")+
+                    " polis: "+map.get("polis")
             );
         }
 

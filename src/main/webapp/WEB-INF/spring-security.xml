@@ -8,12 +8,12 @@
 
     <http auto-config="true">
         <access-denied-handler error-page="/AddressBookUser" />
-        <intercept-url pattern="/welcome/Admin" access="ROLE_ADMIN"/>
-        <intercept-url pattern="/welcome/Doctor" access="ROLE_DOCTOR"/>
+        <intercept-url pattern="/doctors**" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/clients**" access="ROLE_DOCTOR"/>
         <form-login
                 login-page="/login"
                 default-target-url="/welcome"
-                username-parameter="firstname"
+                username-parameter="username"
                 password-parameter="password"
                 authentication-failure-url="/login?error"
         />
@@ -24,8 +24,8 @@
     <authentication-manager>
         <authentication-provider>
             <jdbc-user-service data-source-ref="dataSource"
-                               users-by-username-query="select id, password from doctors where id = ?"
-                               authorities-by-username-query="select doctor_id, role from roles where doctor_id = ?  " />
+                               users-by-username-query="select firstname, password, enabled from doctors where firstname = ?"
+                               authorities-by-username-query="SELECT  doctors.firstname, roles.role  FROM roles JOIN doctors ON roles.doctor_id = doctors.id where doctors.firstname = ? " />
         </authentication-provider>
     </authentication-manager>
 

@@ -10,6 +10,7 @@ CREATE TABLE doctors (
   password VARCHAR(45) NOT NULL,
   speciality VARCHAR(45),
   cabinet SMALLINT NOT NULL DEFAULT 1,
+  enabled SMALLINT NOT NULL DEFAULT 1,
   PRIMARY KEY(id)
 );
 
@@ -19,6 +20,7 @@ CREATE  TABLE clients (
   lastname VARCHAR(45) NOT NULL,
   patronymic VARCHAR(45) ,
   phone VARCHAR(45),
+  polis VARCHAR(45),
   active SMALLINT NOT NULL DEFAULT 1,
   doctor_id INTEGER NOT NULL,
   FOREIGN KEY (doctor_id) REFERENCES doctors (id)

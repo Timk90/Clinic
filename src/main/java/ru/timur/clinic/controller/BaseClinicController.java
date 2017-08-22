@@ -23,13 +23,9 @@ public class BaseClinicController {
                 //when Anonymous Authentication is enabled
                 !(SecurityContextHolder.getContext().getAuthentication()
                         instanceof AnonymousAuthenticationToken)) {
-            return "login";
-        }else if(!(SecurityContextHolder.getContext().getAuthentication()
-                instanceof AnonymousAuthenticationToken) && authentication.getName().length()>0){
             return "redirect:/welcome";
-        }
-
-        return "failed";
+        }else
+        return "redirect:/login";
     }
 
 }

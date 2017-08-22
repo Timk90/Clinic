@@ -6,6 +6,7 @@ import main.java.ru.timur.clinic.bean.Doctor;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Tester on 16/08/2017.
@@ -19,6 +20,8 @@ public interface ClinicService {
     void updateClient(Client client);
     void insertClientToDB(Client client);
     void updateClientById(long id);
+    List<Map<String, String>> getAllClientsWithDoctors();
+    List<Map<String, String>> getClientWithDoctorsById(long id);
 
     void insertDoctor(Doctor doctor);
     void deleteDoctorById(Short id);

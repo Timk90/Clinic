@@ -48,4 +48,6 @@ public class LoginClinicController {
         model.setViewName("login");
         return model;
     }
+
+
 }

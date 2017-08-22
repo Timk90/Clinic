@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Tester on 16/08/2017.
@@ -33,7 +34,14 @@ public class ClinicServiceImp implements ClinicService{
 
     @Override
     public List<Client> getAllClients() {
-        return clientMapper.getAllClients();
+        List<Client> clients = clientMapper.getAllClients();
+
+        return clients;
+    }
+
+    @Override
+    public List<Map<String, String>> getAllClientsWithDoctors() {
+        return clientMapper.getAllClientsWithDoctors();
     }
 
     @Override
@@ -50,6 +58,11 @@ public class ClinicServiceImp implements ClinicService{
     public void updateClientById(long id) {
         List<Client> client = clientMapper.getClientById(id);
         clientMapper.updateClient(client.get(0));
+    }
+
+    @Override
+    public List<Map<String, String>> getClientWithDoctorsById(long id) {
+        return clientMapper.getClientWithDoctorsById(id);
     }
 
     @Override
