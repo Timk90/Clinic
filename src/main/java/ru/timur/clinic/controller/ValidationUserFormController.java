@@ -40,7 +40,6 @@ public class ValidationUserFormController {
             BindingResult result
             ){
 
-
         ModelAndView model = new ModelAndView();
         if(result.hasErrors()){
             model.setViewName("doctorform");
