@@ -13,10 +13,9 @@ import org.springframework.validation.annotation.Validated;
 public class MyDoctorValidator implements Validator {
 
 
-
     @Override
     public boolean supports(Class<?> aClass) {
-        return false;
+        return Doctor.class.equals(aClass);
     }
 
     @Override
@@ -34,15 +33,15 @@ public class MyDoctorValidator implements Validator {
             errors.rejectValue("patronymic", "check.patronymic");
         }
 
-        if(doctor.getFirstname().length()<3 || doctor.getFirstname().length()>20){
+        if(doctor.getFirstname().length()<2 || doctor.getFirstname().length()>20){
             errors.rejectValue("firstname", "check.name.length");
         }
 
-        if(doctor.getLastname().length()<3 || doctor.getLastname().length()>20){
+        if(doctor.getLastname().length()<2 || doctor.getLastname().length()>20){
             errors.rejectValue("lastname", "check.name.length");
         }
 
-        if(doctor.getCabinet()>3){
+        if(doctor.getCabinet()>999){
             errors.rejectValue("cabinet", "check.cabinet");
         }
 
@@ -50,12 +49,12 @@ public class MyDoctorValidator implements Validator {
             errors.rejectValue("passwordConfirmation", "confirmation.incorrect");
         }
 
-        if(doctor.getPassword().length()<4){
-            errors.rejectValue("password", "password.short");
+        if(doctor.getPassword().length()<4 || doctor.getPassword().length()>32){
+            errors.rejectValue("password", "password.length");
         }
 
-        if(doctor.getPasswordConfirmation().length()<4){
-            errors.rejectValue("passwordConfirmation", "password.short");
+        if(doctor.getPasswordConfirmation().length()<4 || doctor.getPassword().length()>32){
+            errors.rejectValue("passwordConfirmation", "password.length");
         }
     }
 }

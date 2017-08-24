@@ -33,7 +33,7 @@
 </c:choose>
 </h2>
 <table>
-    <form:form modelAttribute="doctor" method="post" action="/checkDoctorForm" commandName="doctor">
+    <form:form modelAttribute="doctor" method="post" action="/checkDoctorForm" >
         <tr>
             <td>Имя</td>
             <td><form:input path="firstname"></form:input></td>
@@ -77,9 +77,9 @@
 
 </table>
 
-<h1>Заказывайте у нас на сайте!!! Он у нас самый крутой!</h1>
-Вот , например, хлорсодержащие препараты:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ey0VkOLFL48" frameborder="0" allowfullscreen></iframe>
+<%--<h1>Заказывайте у нас на сайте!!! Он у нас самый крутой!</h1>--%>
+<%--Вот , например, хлорсодержащие препараты:--%>
+<%--<iframe width="560" height="315" src="https://www.youtube.com/embed/ey0VkOLFL48" frameborder="0" allowfullscreen></iframe>--%>
 
 </body>
 </html>

@@ -16,15 +16,26 @@
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>classpath:/main/resources/properties/application.properties</value>
+                <value>/WEB-INF/classes/main/resources/properties/validation.properties</value>
             </list>
         </property>
+    </bean>
+
+    <bean id="myValidator" class="main.java.ru.timur.clinic.validator.MyDoctorValidator"></bean>
+
+    <!--here we have to put the name of file with messages for validation-->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename">
+            <value>/WEB-INF/classes/main/resources/properties/validation</value>
+        </property>
+        <property name="defaultEncoding" value="UTF-8" />
     </bean>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/" />
         <property name="suffix" value=".jsp" />
     </bean>
+
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${jdbc.driver}" />
@@ -50,6 +61,6 @@
     <jdbc:initialize-database>
         <jdbc:script location="WEB-INF/classes/main/resources/sql/init.sql" encoding="UTF-8"/>
         <jdbc:script location="WEB-INF/classes/main/resources/sql/populate.sql" encoding="UTF-8"/>
-</jdbc:initialize-database>
+    </jdbc:initialize-database>
 
 </beans>

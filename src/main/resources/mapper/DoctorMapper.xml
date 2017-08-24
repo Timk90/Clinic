@@ -28,8 +28,8 @@
     </select>
 
     <insert id="insertDoctor" parameterType="main.java.ru.timur.clinic.bean.Doctor">
-        INSERT INTO  doctors (FIRSTNAME, LASTNAME, PATRONYMIC, PASSWORD, SPECIALITY, CABINET)
-        VALUES (#{firstname}, #{lastname}, #{patronymic}, #{password}, #{speciality}, #{cabinet});
+        INSERT INTO  doctors (FIRSTNAME, LASTNAME, PATRONYMIC, PASSWORD, SPECIALITY, CABINET, WNABLED)
+        VALUES (#{firstname}, #{lastname}, #{patronymic}, #{password}, #{speciality}, #{cabinet}, 1);
     </insert>
 
     <insert id="updateDoctor" parameterType="main.java.ru.timur.clinic.bean.Doctor">

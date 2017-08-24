@@ -5,8 +5,10 @@ import main.java.ru.timur.clinic.service.ClinicService;
 import main.java.ru.timur.clinic.validator.MyDoctorValidator;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
@@ -22,7 +24,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class ValidationUserFormController {
 
-
+    @Autowired
+    @Qualifier("myValidator")
     MyDoctorValidator validator;
 
     @Autowired
@@ -35,25 +38,28 @@ public class ValidationUserFormController {
 
     @RequestMapping(value = {"/checkDoctorForm**"}, method = RequestMethod.POST)
     ModelAndView checkForm(
-            @ModelAttribute("doctor") @Validated Doctor doctor,
             @Param("message") String message,
+            @Validated @ModelAttribute("doctor") Doctor doctor,
             BindingResult result
             ){
+        ModelAndView modelAndView = new ModelAndView();
 
-        ModelAndView model = new ModelAndView();
         if(result.hasErrors()){
-            model.setViewName("doctorform");
+            //model.addObject("doctor", doctor);
+            modelAndView.setViewName("doctorform");
+            return modelAndView;
         }else{
-            if(message.equals("update")){
+            if(message.equals("Update")){
                 clinicService.updateDoctor(doctor);
-            }else if(message.equals("add")){
+            }else if(message.equals("Add")){
                 clinicService.insertDoctor(doctor);
             }
-
-            model.setViewName("doctors");
+            modelAndView.addObject("doctors", clinicService.getAllDoctors());
+            modelAndView.setViewName("redirect:/doctors");
+            return modelAndView;
         }
 
-        return model;
+
     }
 
 }

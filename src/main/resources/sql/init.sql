@@ -6,7 +6,7 @@ CREATE TABLE doctors (
   id SERIAL NOT NULL,
   firstname VARCHAR(45) NOT NULL,
   lastname VARCHAR(45) NOT NULL,
-  patronymic VARCHAR(45) ,
+  patronymic VARCHAR(45),
   password VARCHAR(45) NOT NULL,
   speciality VARCHAR(45),
   cabinet SMALLINT NOT NULL,
