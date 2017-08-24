@@ -9,7 +9,7 @@ CREATE TABLE doctors (
   patronymic VARCHAR(45) ,
   password VARCHAR(45) NOT NULL,
   speciality VARCHAR(45),
-  cabinet SMALLINT NOT NULL DEFAULT 1,
+  cabinet SMALLINT NOT NULL,
   enabled SMALLINT NOT NULL DEFAULT 1,
   PRIMARY KEY(id)
 );
