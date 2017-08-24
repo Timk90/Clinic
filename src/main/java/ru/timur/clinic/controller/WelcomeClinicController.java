@@ -34,40 +34,22 @@ public class WelcomeClinicController {
     ModelAndView welcome(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
+        String name = auth.getName();
+        ModelAndView model = new ModelAndView();
+        model.addObject("name", name);
+        model.setViewName("welcome");
         if(authorities.contains(new SimpleGrantedAuthority("ROLE_ADMIN"))){
-        return new ModelAndView("redirect:/doctors");
+            model.addObject("role", "admin");
         }else{
-            return new ModelAndView("redirect:/clients");
+            model.addObject("role", "doctor");
         }
-    }
-
-    @RequestMapping(value={"/doctors"}, method = GET)
-    ModelAndView showDoctorsPage(){
-        ModelAndView model = new ModelAndView();
-        List<Doctor> doctors = clinicService.getAllDoctors();
-        model.addObject("doctors", doctors);
-        model.setViewName("doctors");
         return model;
     }
 
-    @RequestMapping(value={"/clients"}, method = GET)
-    ModelAndView showClintsPage(){
+    @RequestMapping(value = {"/403"}, method = GET)
+    ModelAndView noAccess(){
         ModelAndView model = new ModelAndView();
-        //List<Client> clients = clinicService.getAllClients();
-        List<Map<String,String>> clients = clinicService.getAllClientsWithDoctors();
-        model.addObject("clients", clients);
-        model.setViewName("clients");
+        model.setViewName("403");
         return model;
     }
-
-    @RequestMapping(value={"/clients/{id}"}, method = GET)
-    ModelAndView showClintPersonalPage(
-            @PathVariable(value="id", required = false) long id){
-        List<Map<String, String>> client = clinicService.getClientWithDoctorsById(id);
-        ModelAndView model = new ModelAndView();
-        model.addObject("selectedClient", client);
-        model.setViewName("clientinfo");
-        return model;
-    }
-
 }

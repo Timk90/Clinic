@@ -24,10 +24,10 @@ public interface ClinicService {
     List<Map<String, String>> getClientWithDoctorsById(long id);
 
     void insertDoctor(Doctor doctor);
-    void deleteDoctorById(Short id);
+    void deleteDoctorById(long id);
     void updateDoctor(Doctor doctor);
     List<Doctor> getDoctorByName(String firstname);
-    List<Doctor> getDoctorById(Short id);
+    List<Doctor> getDoctorById(long id);
     List<Doctor> getAllDoctors();
 
 }

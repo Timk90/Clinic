@@ -8,8 +8,8 @@
     <resultMap type="main.java.ru.timur.clinic.bean.Doctor" id="resultMap">
         <id property="id" column="ID" />
         <result property="firstname" column="FIRSTNAME"/>
-        <result property="lastname" column="SURENAME"/>
-        <result property="patronymic" column="PATRONIM"/>
+        <result property="lastname" column="LASTNAME"/>
+        <result property="patronymic" column="PATRONYMIC"/>
         <result property="speciality" column="SPECIALITY"/>
         <result property="cabinet" column="CABINET"/>
         <result property="password" column="PASSWORD"/>
@@ -27,12 +27,12 @@
         SELECT * FROM  doctors where FIRSTNAME = #{firstname};
     </select>
 
-    <insert id="insertClient" parameterType="main.java.ru.timur.clinic.bean.Doctor">
-        INSERT INTO  doctors (FIRSTNAME, SURENAME, PATRONIM, PHONE, ENABLED)
-        VALUES (#{firstname}, #{lastname}, #{patronymic}, #{polis}, #{active});
+    <insert id="insertDoctor" parameterType="main.java.ru.timur.clinic.bean.Doctor">
+        INSERT INTO  doctors (FIRSTNAME, LASTNAME, PATRONYMIC, PASSWORD, SPECIALITY, CABINET)
+        VALUES (#{firstname}, #{lastname}, #{patronymic}, #{password}, #{speciality}, #{cabinet});
     </insert>
 
-    <insert id="updateClient" parameterType="main.java.ru.timur.clinic.bean.Doctor">
+    <insert id="updateDoctor" parameterType="main.java.ru.timur.clinic.bean.Doctor">
         UPDATE  doctors SET
         FIRSTNAME = #{firstname},
         LASTNAME = #{lastname},

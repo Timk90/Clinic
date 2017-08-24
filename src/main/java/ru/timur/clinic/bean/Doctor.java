@@ -12,8 +12,9 @@ public class Doctor {
     String lastname;
     String patronymic;
     String password;
+    String passwordConfirmation;
     String speciality;
-    Short cabinet;
+    short cabinet;
     List<String> roles;
 
     public long getId() {
@@ -80,5 +81,11 @@ public class Doctor {
         this.roles = roles;
     }
 
+    public void setPasswordConfirmation(String passwordConfirmation) {
+        this.passwordConfirmation = passwordConfirmation;
+    }
+    public String getPasswordConfirmation() {
+        return passwordConfirmation;
+    }
 
 }

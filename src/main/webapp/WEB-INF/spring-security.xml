@@ -8,8 +8,10 @@
 
     <http auto-config="true">
         <access-denied-handler error-page="/AddressBookUser" />
+        <access-denied-handler error-page="/403" />
         <intercept-url pattern="/doctors**" access="ROLE_ADMIN"/>
         <intercept-url pattern="/clients**" access="ROLE_DOCTOR"/>
+
         <form-login
                 login-page="/login"
                 default-target-url="/welcome"

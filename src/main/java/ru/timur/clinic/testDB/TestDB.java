@@ -80,7 +80,7 @@ public class TestDB {
         //new TestDB().createAndPopulateTable();
 
         //ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config-servlet.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("main/webapp/WEB-INF/spring-config-servlet.xml");
 
         ClinicServiceImp service  = (ClinicServiceImp)ctx.getBean("service");
         System.out.println("------Clients List------");

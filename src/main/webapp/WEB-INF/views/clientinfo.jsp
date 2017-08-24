@@ -8,15 +8,21 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<style>
+    #table_head{
+        font-weight: bold;
+    }
+
+</style>
 <head>
     <title>Client Info</title>
 </head>
 <body>
 Информация о клиенте
-<table>
+<table style="align-content: center">
 
-    <tr>
-        <td>ID</td>
+    <tr id="table_head">
+        <%--<td>ID</td>--%>
         <td>Имя</td>
         <td>Фамилия</td>
         <td>Отчество</td>
@@ -24,22 +30,23 @@
         <td>Полис</td>
         <td>Лечащий врач</td>
     </tr>
-    <c:forEach items="${selectedClient}" var="client">
+    <c:forEach items="${selectedClient}" var="doctor">
     <tr>
-        <td><c:out value="${client['id']}"></c:out></td>
-        <td><c:out value="${client['firstname']}"></c:out></td>
-        <td><c:out value="${client['lastname']}"></c:out></td>
-        <td><c:out value="${client['patronymic']}"></c:out></td>
-        <td><c:out value="${client['phone']}"></c:out></td>
-        <td><c:out value="${client['polis']}"></c:out></td>
+        <%--<td><c:out value="${doctor['id']}"></c:out></td>--%>
+        <td><c:out value="${doctor['firstname']}"></c:out></td>
+        <td><c:out value="${doctor['lastname']}"></c:out></td>
+        <td><c:out value="${doctor['patronymic']}"></c:out></td>
+        <td><c:out value="${doctor['phone']}"></c:out></td>
+        <td><c:out value="${doctor['polis']}"></c:out></td>
         <td>
-            <c:out value="${client['doctorFirstname']}"></c:out>
-            <c:out value="${client['doctorLastname']}"></c:out>
+            <c:out value="${doctor['doctorFirstname']}"></c:out>
+            <c:out value="${doctor['doctorLastname']}"></c:out>
         </td>
     </tr>
     </c:forEach>
 </table>
-    <a href="/clients">Назад</a>
+<br>
+<a href="/clients">Назад</a>
 
 </body>
 </html>

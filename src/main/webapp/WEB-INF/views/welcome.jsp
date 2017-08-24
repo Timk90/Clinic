@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Tester
@@ -8,9 +9,15 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"  language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Welcome</title>
   </head>
   <body>
-  $END$
+  Добро пожаловать в систему, ${name}. <br>
+  <a href="/clients">Показать список клиентов</a><br>
+  <c:choose>
+    <c:when test="${role.equals('admin')}"><a href="/doctors">Показать список врачей</a></c:when>
+  </c:choose>
+  <br>
+  <button onclick="location.href='j_spring_security_logout'">Выйти</button>
   </body>
 </html>

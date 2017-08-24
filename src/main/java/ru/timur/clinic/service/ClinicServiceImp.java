@@ -76,7 +76,7 @@ public class ClinicServiceImp implements ClinicService{
     }
 
     @Override
-    public void deleteDoctorById(Short id) {
+    public void deleteDoctorById(long id) {
         doctorMapper.deleteDoctorById(id);
     }
 
@@ -91,7 +91,7 @@ public class ClinicServiceImp implements ClinicService{
     }
 
     @Override
-    public List<Doctor> getDoctorById(Short id) {
+    public List<Doctor> getDoctorById(long id) {
 
         return doctorMapper.getDoctorById(id);
     }
