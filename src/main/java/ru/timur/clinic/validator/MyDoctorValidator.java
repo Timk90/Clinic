@@ -22,12 +22,12 @@ public class MyDoctorValidator implements Validator {
     public void validate(Object o, Errors errors) {
         Doctor doctor = (Doctor)o;
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstname", "check.name.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastname", "check.name.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "check.name.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "passwordConfirmation", "check.name.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "speciality", "check.name.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "cabinet", "check.name.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstname", "check.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastname", "check.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "check.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "passwordConfirmation", "check.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "speciality", "check.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "cabinet", "check.empty");
 
         if(doctor.getPatronymic().trim().length()==0 && doctor.getPatronymic().length()>0){
             errors.rejectValue("patronymic", "check.patronymic");

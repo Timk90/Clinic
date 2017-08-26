@@ -16,7 +16,7 @@
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>/WEB-INF/classes/main/resources/properties/validation.properties</value>
+                <value>/WEB-INF/classes/main/resources/properties/application.properties</value>
             </list>
         </property>
     </bean>

@@ -33,7 +33,7 @@
 </c:choose>
 </h2>
 <table>
-    <form:form modelAttribute="doctor" method="post" action="/checkDoctorForm" >
+    <form:form modelAttribute="doctor" method="post" action="/checkDoctorForm" commandName="doctor" >
         <tr>
             <td>Имя</td>
             <td><form:input path="firstname"></form:input></td>
@@ -73,6 +73,7 @@
             <td colspan="3"><input type="submit" value="Сохранить"></td>
         </tr>
             <input type="hidden" name="message" value="${message}">
+            <form:hidden path="id"></form:hidden>
     </form:form>
 
 </table>

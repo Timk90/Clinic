@@ -13,10 +13,11 @@
         <result property="speciality" column="SPECIALITY"/>
         <result property="cabinet" column="CABINET"/>
         <result property="password" column="PASSWORD"/>
+        <result property="enabled" column="ENABLED"/>
     </resultMap>
 
     <select id="getAllDoctors" resultMap="resultMap">
-        SELECT * FROM doctors;
+        SELECT * FROM doctors ORDER BY ID;
     </select>
 
     <select id="getDoctorById" resultMap="resultMap">
@@ -28,9 +29,14 @@
     </select>
 
     <insert id="insertDoctor" parameterType="main.java.ru.timur.clinic.bean.Doctor">
-        INSERT INTO  doctors (FIRSTNAME, LASTNAME, PATRONYMIC, PASSWORD, SPECIALITY, CABINET, WNABLED)
+        INSERT INTO doctors (FIRSTNAME, LASTNAME, PATRONYMIC, PASSWORD, SPECIALITY, CABINET, ENABLED)
         VALUES (#{firstname}, #{lastname}, #{patronymic}, #{password}, #{speciality}, #{cabinet}, 1);
     </insert>
+
+
+    <delete id="deletetDoctorById" parameterType="long">
+        DELETE FROM doctors where ID = #{id};
+    </delete>
 
     <insert id="updateDoctor" parameterType="main.java.ru.timur.clinic.bean.Doctor">
         UPDATE  doctors SET
@@ -39,8 +45,8 @@
         PATRONYMIC = #{patronymic},
         SPECIALITY = #{speciality},
         CABINET = #{cabinet},
-        ACTIVE = #{active},
-        PASSWORD = #{password};
+        PASSWORD = #{password}
+        where id = #{id};
     </insert>
 
 </mapper>

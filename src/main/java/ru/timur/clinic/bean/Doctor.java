@@ -14,6 +14,7 @@ public class Doctor {
     String password;
     String passwordConfirmation;
     String speciality;
+    short enabled;
     short cabinet;
     List<String> roles;
 
@@ -88,4 +89,11 @@ public class Doctor {
         return passwordConfirmation;
     }
 
+    public short getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(short enabled) {
+        this.enabled = enabled;
+    }
 }

@@ -46,7 +46,9 @@ public class ValidationUserFormController {
 
         if(result.hasErrors()){
             //model.addObject("doctor", doctor);
+            modelAndView.addObject("message", message);
             modelAndView.setViewName("doctorform");
+
             return modelAndView;
         }else{
             if(message.equals("Update")){
